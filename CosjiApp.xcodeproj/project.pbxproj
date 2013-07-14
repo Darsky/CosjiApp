@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18F0CD1A179254240031995E /* CosjiTaoBaoFanliViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F0CD18179254240031995E /* CosjiTaoBaoFanliViewController.m */; };
+		18F0CD1B179254240031995E /* CosjiTaoBaoFanliViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F0CD19179254240031995E /* CosjiTaoBaoFanliViewController.xib */; };
+		18F0CD20179256350031995E /* CosjiViewStoreFanliController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F0CD1E179256350031995E /* CosjiViewStoreFanliController.m */; };
+		18F0CD21179256350031995E /* CosjiViewStoreFanliController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F0CD1F179256350031995E /* CosjiViewStoreFanliController.xib */; };
+		18F0CD26179268E40031995E /* CosjiSpecialActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F0CD24179268E40031995E /* CosjiSpecialActivityViewController.m */; };
+		18F0CD27179268E40031995E /* CosjiSpecialActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F0CD25179268E40031995E /* CosjiSpecialActivityViewController.xib */; };
+		18F0CD2C179269DA0031995E /* CosjiUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F0CD2A179269DA0031995E /* CosjiUserViewController.m */; };
+		18F0CD2D179269DA0031995E /* CosjiUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F0CD2B179269DA0031995E /* CosjiUserViewController.xib */; };
+		18F0CD311792958B0031995E /* libTOPIOSSdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18F0CD301792958B0031995E /* libTOPIOSSdk.a */; };
+		60927B84178E2B1F0058CFD9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60927B83178E2B1F0058CFD9 /* libz.dylib */; };
+		60927B88178E2C220058CFD9 /* SKTransactionObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 60927B87178E2C220058CFD9 /* SKTransactionObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		60927B8A178E2C6D0058CFD9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60927B89178E2C6D0058CFD9 /* StoreKit.framework */; };
+		609341FE178E1EB600761FB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609341FD178E1EB600761FB6 /* UIKit.framework */; };
+		60934200178E1EB600761FB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609341FF178E1EB600761FB6 /* Foundation.framework */; };
+		60934202178E1EB600761FB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60934201178E1EB600761FB6 /* CoreGraphics.framework */; };
+		60934208178E1EB600761FB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60934206178E1EB600761FB6 /* InfoPlist.strings */; };
+		6093420A178E1EB600761FB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60934209178E1EB600761FB6 /* main.m */; };
+		6093420E178E1EB600761FB6 /* CosjiAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6093420D178E1EB600761FB6 /* CosjiAppDelegate.m */; };
+		60934210178E1EB600761FB6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6093420F178E1EB600761FB6 /* Default.png */; };
+		60934212178E1EB600761FB6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60934211178E1EB600761FB6 /* Default@2x.png */; };
+		60934214178E1EB600761FB6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60934213178E1EB600761FB6 /* Default-568h@2x.png */; };
+		60934217178E1EB600761FB6 /* CosjiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60934216178E1EB600761FB6 /* CosjiViewController.m */; };
+		6093421A178E1EB600761FB6 /* CosjiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60934218178E1EB600761FB6 /* CosjiViewController.xib */; };
+		6093424D178E206300761FB6 /* barImg.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6093424C178E206300761FB6 /* barImg.bundle */; };
+		6093424F178E24F500761FB6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6093424E178E24F500761FB6 /* SystemConfiguration.framework */; };
+		60934259178E268400761FB6 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 60934255178E268400761FB6 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6093425A178E268400761FB6 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 60934258178E268400761FB6 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		18F0CD17179254240031995E /* CosjiTaoBaoFanliViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CosjiTaoBaoFanliViewController.h; sourceTree = "<group>"; };
+		18F0CD18179254240031995E /* CosjiTaoBaoFanliViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CosjiTaoBaoFanliViewController.m; sourceTree = "<group>"; };
+		18F0CD19179254240031995E /* CosjiTaoBaoFanliViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CosjiTaoBaoFanliViewController.xib; sourceTree = "<group>"; };
+		18F0CD1D179256350031995E /* CosjiViewStoreFanliController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CosjiViewStoreFanliController.h; sourceTree = "<group>"; };
+		18F0CD1E179256350031995E /* CosjiViewStoreFanliController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CosjiViewStoreFanliController.m; sourceTree = "<group>"; };
+		18F0CD1F179256350031995E /* CosjiViewStoreFanliController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CosjiViewStoreFanliController.xib; sourceTree = "<group>"; };
+		18F0CD23179268E40031995E /* CosjiSpecialActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CosjiSpecialActivityViewController.h; sourceTree = "<group>"; };
+		18F0CD24179268E40031995E /* CosjiSpecialActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CosjiSpecialActivityViewController.m; sourceTree = "<group>"; };
+		18F0CD25179268E40031995E /* CosjiSpecialActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CosjiSpecialActivityViewController.xib; sourceTree = "<group>"; };
+		18F0CD29179269DA0031995E /* CosjiUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CosjiUserViewController.h; sourceTree = "<group>"; };
+		18F0CD2A179269DA0031995E /* CosjiUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CosjiUserViewController.m; sourceTree = "<group>"; };
+		18F0CD2B179269DA0031995E /* CosjiUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CosjiUserViewController.xib; sourceTree = "<group>"; };
+		18F0CD301792958B0031995E /* libTOPIOSSdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTOPIOSSdk.a; sourceTree = "<group>"; };
+		60927B83178E2B1F0058CFD9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		60927B86178E2C220058CFD9 /* SKTransactionObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTransactionObserver.h; sourceTree = "<group>"; };
+		60927B87178E2C220058CFD9 /* SKTransactionObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTransactionObserver.m; sourceTree = "<group>"; };
+		60927B89178E2C6D0058CFD9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		609341FA178E1EB600761FB6 /* CosjiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CosjiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		609341FD178E1EB600761FB6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		609341FF178E1EB600761FB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		60934201178E1EB600761FB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		60934205178E1EB600761FB6 /* CosjiApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CosjiApp-Info.plist"; sourceTree = "<group>"; };
+		60934207178E1EB600761FB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		60934209178E1EB600761FB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6093420B178E1EB600761FB6 /* CosjiApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CosjiApp-Prefix.pch"; sourceTree = "<group>"; };
+		6093420C178E1EB600761FB6 /* CosjiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CosjiAppDelegate.h; sourceTree = "<group>"; };
+		6093420D178E1EB600761FB6 /* CosjiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CosjiAppDelegate.m; sourceTree = "<group>"; };
+		6093420F178E1EB600761FB6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		60934211178E1EB600761FB6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		60934213178E1EB600761FB6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		60934215178E1EB600761FB6 /* CosjiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CosjiViewController.h; sourceTree = "<group>"; };
+		60934216178E1EB600761FB6 /* CosjiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CosjiViewController.m; sourceTree = "<group>"; };
+		60934219178E1EB600761FB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CosjiViewController.xib; sourceTree = "<group>"; };
+		60934223178E204B00761FB6 /* DebuggingTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebuggingTools.h; sourceTree = "<group>"; };
+		60934224178E204B00761FB6 /* JDY_ItemManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDY_ItemManagement.h; sourceTree = "<group>"; };
+		60934225178E204B00761FB6 /* JDY_MsgCenterManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDY_MsgCenterManagement.h; sourceTree = "<group>"; };
+		60934226178E204B00761FB6 /* JDY_PlugInEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDY_PlugInEntry.h; sourceTree = "<group>"; };
+		60934227178E204B00761FB6 /* JDY_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDY_Protocol.h; sourceTree = "<group>"; };
+		60934228178E204B00761FB6 /* JDY_ProtocolConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDY_ProtocolConstants.h; sourceTree = "<group>"; };
+		60934229178E204B00761FB6 /* JDY_TradeManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDY_TradeManagement.h; sourceTree = "<group>"; };
+		6093422A178E204B00761FB6 /* JDY_WangWangCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDY_WangWangCommunication.h; sourceTree = "<group>"; };
+		6093422B178E204B00761FB6 /* JDYSharedService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDYSharedService.h; sourceTree = "<group>"; };
+		6093422C178E204B00761FB6 /* MacrosDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacrosDefine.h; sourceTree = "<group>"; };
+		6093422D178E204B00761FB6 /* TopApiResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopApiResponse.h; sourceTree = "<group>"; };
+		6093422E178E204B00761FB6 /* TopAppConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAppConnector.h; sourceTree = "<group>"; };
+		6093422F178E204B00761FB6 /* TopAppEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAppEntity.h; sourceTree = "<group>"; };
+		60934230178E204B00761FB6 /* TopAppEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAppEvent.h; sourceTree = "<group>"; };
+		60934231178E204B00761FB6 /* TopAppService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAppService.h; sourceTree = "<group>"; };
+		60934232178E204B00761FB6 /* TopAppSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAppSession.h; sourceTree = "<group>"; };
+		60934233178E204B00761FB6 /* TopAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAttachment.h; sourceTree = "<group>"; };
+		60934234178E204B00761FB6 /* TopAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAuth.h; sourceTree = "<group>"; };
+		60934235178E204B00761FB6 /* TopAuthCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAuthCallback.h; sourceTree = "<group>"; };
+		60934236178E204B00761FB6 /* TopAuthWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAuthWebView.h; sourceTree = "<group>"; };
+		60934237178E204B00761FB6 /* TopBridgeWebview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBridgeWebview.h; sourceTree = "<group>"; };
+		60934238178E204B00761FB6 /* TopConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopConstants.h; sourceTree = "<group>"; };
+		60934239178E204B00761FB6 /* TopCrashHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopCrashHandler.h; sourceTree = "<group>"; };
+		6093423A178E204B00761FB6 /* TopEventCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopEventCallback.h; sourceTree = "<group>"; };
+		6093423B178E204B00761FB6 /* TopIOSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopIOSClient.h; sourceTree = "<group>"; };
+		6093423C178E204B00761FB6 /* TopIOSSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopIOSSdk.h; sourceTree = "<group>"; };
+		6093423D178E204B00761FB6 /* TopIOSSdkExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopIOSSdkExt.h; sourceTree = "<group>"; };
+		6093423E178E204B00761FB6 /* TopIOSUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopIOSUtil.h; sourceTree = "<group>"; };
+		6093423F178E204B00761FB6 /* TopOpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopOpenUDID.h; sourceTree = "<group>"; };
+		60934240178E204B00761FB6 /* TopPluginServiceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPluginServiceType.h; sourceTree = "<group>"; };
+		60934241178E204B00761FB6 /* TopReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopReachability.h; sourceTree = "<group>"; };
+		60934242178E204B00761FB6 /* TopSDKBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopSDKBundle.h; sourceTree = "<group>"; };
+		60934243178E204B00761FB6 /* TopServiceError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopServiceError.h; sourceTree = "<group>"; };
+		60934244178E204B00761FB6 /* TopSimpleCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopSimpleCache.h; sourceTree = "<group>"; };
+		60934245178E204B00761FB6 /* TopToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopToolBar.h; sourceTree = "<group>"; };
+		60934246178E204B00761FB6 /* TopTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTracker.h; sourceTree = "<group>"; };
+		6093424C178E206300761FB6 /* barImg.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = barImg.bundle; sourceTree = "<group>"; };
+		6093424E178E24F500761FB6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		60934254178E268400761FB6 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		60934255178E268400761FB6 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		60934256178E268400761FB6 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		60934257178E268400761FB6 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		60934258178E268400761FB6 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		609341F7178E1EB600761FB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60927B8A178E2C6D0058CFD9 /* StoreKit.framework in Frameworks */,
+				60927B84178E2B1F0058CFD9 /* libz.dylib in Frameworks */,
+				6093424F178E24F500761FB6 /* SystemConfiguration.framework in Frameworks */,
+				609341FE178E1EB600761FB6 /* UIKit.framework in Frameworks */,
+				60934200178E1EB600761FB6 /* Foundation.framework in Frameworks */,
+				60934202178E1EB600761FB6 /* CoreGraphics.framework in Frameworks */,
+				18F0CD311792958B0031995E /* libTOPIOSSdk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18F0CD16179251DF0031995E /* TaobaoFanli */ = {
+			isa = PBXGroup;
+			children = (
+				18F0CD17179254240031995E /* CosjiTaoBaoFanliViewController.h */,
+				18F0CD18179254240031995E /* CosjiTaoBaoFanliViewController.m */,
+				18F0CD19179254240031995E /* CosjiTaoBaoFanliViewController.xib */,
+			);
+			name = TaobaoFanli;
+			sourceTree = "<group>";
+		};
+		18F0CD1C179256130031995E /* StoreFanli */ = {
+			isa = PBXGroup;
+			children = (
+				18F0CD1D179256350031995E /* CosjiViewStoreFanliController.h */,
+				18F0CD1E179256350031995E /* CosjiViewStoreFanliController.m */,
+				18F0CD1F179256350031995E /* CosjiViewStoreFanliController.xib */,
+			);
+			name = StoreFanli;
+			sourceTree = "<group>";
+		};
+		18F0CD22179268C20031995E /* SpecialActivity */ = {
+			isa = PBXGroup;
+			children = (
+				18F0CD23179268E40031995E /* CosjiSpecialActivityViewController.h */,
+				18F0CD24179268E40031995E /* CosjiSpecialActivityViewController.m */,
+				18F0CD25179268E40031995E /* CosjiSpecialActivityViewController.xib */,
+			);
+			name = SpecialActivity;
+			sourceTree = "<group>";
+		};
+		18F0CD28179269C10031995E /* UserView */ = {
+			isa = PBXGroup;
+			children = (
+				18F0CD29179269DA0031995E /* CosjiUserViewController.h */,
+				18F0CD2A179269DA0031995E /* CosjiUserViewController.m */,
+				18F0CD2B179269DA0031995E /* CosjiUserViewController.xib */,
+			);
+			name = UserView;
+			sourceTree = "<group>";
+		};
+		609341F1178E1EB600761FB6 = {
+			isa = PBXGroup;
+			children = (
+				60927B89178E2C6D0058CFD9 /* StoreKit.framework */,
+				60927B83178E2B1F0058CFD9 /* libz.dylib */,
+				6093424E178E24F500761FB6 /* SystemConfiguration.framework */,
+				60934203178E1EB600761FB6 /* CosjiApp */,
+				609341FC178E1EB600761FB6 /* Frameworks */,
+				609341FB178E1EB600761FB6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		609341FB178E1EB600761FB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				609341FA178E1EB600761FB6 /* CosjiApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		609341FC178E1EB600761FB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				609341FD178E1EB600761FB6 /* UIKit.framework */,
+				609341FF178E1EB600761FB6 /* Foundation.framework */,
+				60934201178E1EB600761FB6 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60934203178E1EB600761FB6 /* CosjiApp */ = {
+			isa = PBXGroup;
+			children = (
+				18F0CD28179269C10031995E /* UserView */,
+				18F0CD22179268C20031995E /* SpecialActivity */,
+				18F0CD1C179256130031995E /* StoreFanli */,
+				18F0CD16179251DF0031995E /* TaobaoFanli */,
+				60934221178E204B00761FB6 /* taobaoSDK */,
+				6093420C178E1EB600761FB6 /* CosjiAppDelegate.h */,
+				6093420D178E1EB600761FB6 /* CosjiAppDelegate.m */,
+				60934215178E1EB600761FB6 /* CosjiViewController.h */,
+				60934216178E1EB600761FB6 /* CosjiViewController.m */,
+				60934218178E1EB600761FB6 /* CosjiViewController.xib */,
+				60934204178E1EB600761FB6 /* Supporting Files */,
+			);
+			path = CosjiApp;
+			sourceTree = "<group>";
+		};
+		60934204178E1EB600761FB6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				60934205178E1EB600761FB6 /* CosjiApp-Info.plist */,
+				60934206178E1EB600761FB6 /* InfoPlist.strings */,
+				60934209178E1EB600761FB6 /* main.m */,
+				6093420B178E1EB600761FB6 /* CosjiApp-Prefix.pch */,
+				6093420F178E1EB600761FB6 /* Default.png */,
+				60934211178E1EB600761FB6 /* Default@2x.png */,
+				60934213178E1EB600761FB6 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		60934221178E204B00761FB6 /* taobaoSDK */ = {
+			isa = PBXGroup;
+			children = (
+				18F0CD301792958B0031995E /* libTOPIOSSdk.a */,
+				60927B86178E2C220058CFD9 /* SKTransactionObserver.h */,
+				60927B87178E2C220058CFD9 /* SKTransactionObserver.m */,
+				60934254178E268400761FB6 /* GTMBase64.h */,
+				60934255178E268400761FB6 /* GTMBase64.m */,
+				60934256178E268400761FB6 /* GTMDefines.h */,
+				60934257178E268400761FB6 /* JSONKit.h */,
+				60934258178E268400761FB6 /* JSONKit.m */,
+				6093424B178E206300761FB6 /* Resource */,
+				60934222178E204B00761FB6 /* Header */,
+			);
+			path = taobaoSDK;
+			sourceTree = "<group>";
+		};
+		60934222178E204B00761FB6 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				60934223178E204B00761FB6 /* DebuggingTools.h */,
+				60934224178E204B00761FB6 /* JDY_ItemManagement.h */,
+				60934225178E204B00761FB6 /* JDY_MsgCenterManagement.h */,
+				60934226178E204B00761FB6 /* JDY_PlugInEntry.h */,
+				60934227178E204B00761FB6 /* JDY_Protocol.h */,
+				60934228178E204B00761FB6 /* JDY_ProtocolConstants.h */,
+				60934229178E204B00761FB6 /* JDY_TradeManagement.h */,
+				6093422A178E204B00761FB6 /* JDY_WangWangCommunication.h */,
+				6093422B178E204B00761FB6 /* JDYSharedService.h */,
+				6093422C178E204B00761FB6 /* MacrosDefine.h */,
+				6093422D178E204B00761FB6 /* TopApiResponse.h */,
+				6093422E178E204B00761FB6 /* TopAppConnector.h */,
+				6093422F178E204B00761FB6 /* TopAppEntity.h */,
+				60934230178E204B00761FB6 /* TopAppEvent.h */,
+				60934231178E204B00761FB6 /* TopAppService.h */,
+				60934232178E204B00761FB6 /* TopAppSession.h */,
+				60934233178E204B00761FB6 /* TopAttachment.h */,
+				60934234178E204B00761FB6 /* TopAuth.h */,
+				60934235178E204B00761FB6 /* TopAuthCallback.h */,
+				60934236178E204B00761FB6 /* TopAuthWebView.h */,
+				60934237178E204B00761FB6 /* TopBridgeWebview.h */,
+				60934238178E204B00761FB6 /* TopConstants.h */,
+				60934239178E204B00761FB6 /* TopCrashHandler.h */,
+				6093423A178E204B00761FB6 /* TopEventCallback.h */,
+				6093423B178E204B00761FB6 /* TopIOSClient.h */,
+				6093423C178E204B00761FB6 /* TopIOSSdk.h */,
+				6093423D178E204B00761FB6 /* TopIOSSdkExt.h */,
+				6093423E178E204B00761FB6 /* TopIOSUtil.h */,
+				6093423F178E204B00761FB6 /* TopOpenUDID.h */,
+				60934240178E204B00761FB6 /* TopPluginServiceType.h */,
+				60934241178E204B00761FB6 /* TopReachability.h */,
+				60934242178E204B00761FB6 /* TopSDKBundle.h */,
+				60934243178E204B00761FB6 /* TopServiceError.h */,
+				60934244178E204B00761FB6 /* TopSimpleCache.h */,
+				60934245178E204B00761FB6 /* TopToolBar.h */,
+				60934246178E204B00761FB6 /* TopTracker.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		6093424B178E206300761FB6 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6093424C178E206300761FB6 /* barImg.bundle */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		609341F9178E1EB600761FB6 /* CosjiApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6093421D178E1EB600761FB6 /* Build configuration list for PBXNativeTarget "CosjiApp" */;
+			buildPhases = (
+				609341F6178E1EB600761FB6 /* Sources */,
+				609341F7178E1EB600761FB6 /* Frameworks */,
+				609341F8178E1EB600761FB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CosjiApp;
+			productName = CosjiApp;
+			productReference = 609341FA178E1EB600761FB6 /* CosjiApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		609341F2178E1EB600761FB6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Cosji;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Cosji;
+			};
+			buildConfigurationList = 609341F5178E1EB600761FB6 /* Build configuration list for PBXProject "CosjiApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 609341F1178E1EB600761FB6;
+			productRefGroup = 609341FB178E1EB600761FB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				609341F9178E1EB600761FB6 /* CosjiApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		609341F8178E1EB600761FB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60934208178E1EB600761FB6 /* InfoPlist.strings in Resources */,
+				60934210178E1EB600761FB6 /* Default.png in Resources */,
+				60934212178E1EB600761FB6 /* Default@2x.png in Resources */,
+				60934214178E1EB600761FB6 /* Default-568h@2x.png in Resources */,
+				6093421A178E1EB600761FB6 /* CosjiViewController.xib in Resources */,
+				6093424D178E206300761FB6 /* barImg.bundle in Resources */,
+				18F0CD1B179254240031995E /* CosjiTaoBaoFanliViewController.xib in Resources */,
+				18F0CD21179256350031995E /* CosjiViewStoreFanliController.xib in Resources */,
+				18F0CD27179268E40031995E /* CosjiSpecialActivityViewController.xib in Resources */,
+				18F0CD2D179269DA0031995E /* CosjiUserViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		609341F6178E1EB600761FB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6093420A178E1EB600761FB6 /* main.m in Sources */,
+				6093420E178E1EB600761FB6 /* CosjiAppDelegate.m in Sources */,
+				60934217178E1EB600761FB6 /* CosjiViewController.m in Sources */,
+				60934259178E268400761FB6 /* GTMBase64.m in Sources */,
+				6093425A178E268400761FB6 /* JSONKit.m in Sources */,
+				60927B88178E2C220058CFD9 /* SKTransactionObserver.m in Sources */,
+				18F0CD1A179254240031995E /* CosjiTaoBaoFanliViewController.m in Sources */,
+				18F0CD20179256350031995E /* CosjiViewStoreFanliController.m in Sources */,
+				18F0CD26179268E40031995E /* CosjiSpecialActivityViewController.m in Sources */,
+				18F0CD2C179269DA0031995E /* CosjiUserViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		60934206178E1EB600761FB6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60934207178E1EB600761FB6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		60934218178E1EB600761FB6 /* CosjiViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60934219178E1EB600761FB6 /* en */,
+			);
+			name = CosjiViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6093421B178E1EB600761FB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6093421C178E1EB600761FB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6093421E178E1EB600761FB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Linchuan Wang (TVQ942G9J5)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CosjiApp/CosjiApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/MyWorkSpace/CosjiApp/CosjiApp/taobaoSDK/Header/**";
+				INFOPLIST_FILE = "CosjiApp/CosjiApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/CosjiApp/taobaoSDK\"",
+					/Users/alexzhu/Downloads/TOPiOSSdk/taobaoSDK,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0CFB759D-04D6-4C7C-B879-1DD166EF3880";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6093421F178E1EB600761FB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Linchuan Wang (TVQ942G9J5)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CosjiApp/CosjiApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/MyWorkSpace/CosjiApp/CosjiApp/taobaoSDK/Header/**";
+				INFOPLIST_FILE = "CosjiApp/CosjiApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/CosjiApp/taobaoSDK\"",
+					/Users/alexzhu/Downloads/TOPiOSSdk/taobaoSDK,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "59324D4D-1541-4F2F-996E-9442C843AD2B";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		609341F5178E1EB600761FB6 /* Build configuration list for PBXProject "CosjiApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6093421B178E1EB600761FB6 /* Debug */,
+				6093421C178E1EB600761FB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6093421D178E1EB600761FB6 /* Build configuration list for PBXNativeTarget "CosjiApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6093421E178E1EB600761FB6 /* Debug */,
+				6093421F178E1EB600761FB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 609341F2178E1EB600761FB6 /* Project object */;
+}
