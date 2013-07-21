@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CosjiViewStoreFanliController : UIViewController
-
+@interface CosjiViewStoreFanliController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+{
+        NSMutableArray *storeListArray;
+}
+@property (nonatomic,strong) IBOutlet   UITableView *tableView;
 @end

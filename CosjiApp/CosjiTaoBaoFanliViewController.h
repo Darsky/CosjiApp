@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CosjiTaoBaoFanliViewController : UIViewController
+@interface CosjiTaoBaoFanliViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    NSMutableArray *kindsListArray;
+    NSMutableArray *kindsImageArray;
+    NSMutableArray *kindsDescriptionArray;
+    NSMutableArray *ObjectsArray;
+}
+
+@property (nonatomic,strong)IBOutlet UITableView *tableView;
+
 
 @end
