@@ -30,6 +30,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *mineBtn;
 @property (weak, nonatomic) IBOutlet UIView *customTabBar;
 @property (weak, nonatomic) IBOutlet UIView *CustomHeadView;
-
+- (IBAction)exitKeyboard:(id)sender;
 
 @end

@@ -29,10 +29,9 @@
     UITabBarController *rootTabBarController=[[UITabBarController alloc] init];
     CosjiSpecialActivityViewController *specialActivityViewController=[[CosjiSpecialActivityViewController alloc] initWithNibName:@"CosjiSpecialActivityViewController" bundle:nil];
     CosjiTaoBaoFanliViewController *taoBaoFanliViewController=[[CosjiTaoBaoFanliViewController alloc] initWithNibName:@"CosjiTaoBaoFanliViewController" bundle:nil];
-    CosjiViewStoreFanliController *storeFanliController=[[CosjiViewStoreFanliController alloc] initWithNibName:@"CosjiViewStoreFanliController" bundle:nil];
     CosjiUserViewController *userViewController=[[CosjiUserViewController alloc] initWithNibName:@"CosjiUserViewController" bundle:nil];    
     viewController=[[CosjiViewController alloc] initWithNibName:@"CosjiViewController" bundle:nil];
-    rootTabBarController.viewControllers=[NSArray arrayWithObjects:viewController,taoBaoFanliViewController,storeFanliController,specialActivityViewController,userViewController, nil];
+    rootTabBarController.viewControllers=[NSArray arrayWithObjects:viewController,taoBaoFanliViewController,specialActivityViewController,userViewController, nil];
     //[rootTabBarController.tabBar setHidden:YES];
     UIView *contentView;
     if ( [[rootTabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]] )

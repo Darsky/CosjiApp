@@ -39,7 +39,7 @@ static UINavigationController* nc;
     brandListArray=[[NSMutableArray alloc] initWithObjects:@"BelloLogo.png",@"chaberLogo.jpg",@"GAPLogo.jpg",@"hongqingtingLogo.jpg",@"nuoqiLogo.jpg",@"qipilangLogo.jpg",@"SCJLogo.jpg",@"taipingniaoLogo.jpg",@"xiangyingLogo.jpg", nil];
     page=[[UIPageControl alloc] initWithFrame:CGRectMake(260, 100, 38,36)];
     //page.center=CGPointMake(160, 126);
-    sv=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 140)];
+    sv=[[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)];
     sv.delegate=self;
     sv.showsHorizontalScrollIndicator=NO;
     sv.backgroundColor=[UIColor clearColor];
@@ -48,6 +48,7 @@ static UINavigationController* nc;
     self.CustomHeadView.layer.shadowOffset=CGSizeMake(0,0);
     self.CustomHeadView.layer.shadowRadius=10.0;
     self.CustomHeadView.layer.shadowOpacity=1.0;
+    self.homeBtn.contentHorizontalAlignment=self.taoBaoBtn.contentHorizontalAlignment=self.activityBtn.contentHorizontalAlignment=self.mineBtn.contentHorizontalAlignment=UIControlContentHorizontalAlignmentCenter;
     [NSTimer scheduledTimerWithTimeInterval:1 target: self selector: @selector(handleTimer:)  userInfo:nil  repeats: YES];
     [self AdImg:topListArray];
     [self setCurrentPage:page.currentPage];
@@ -202,15 +203,15 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
 {
    if(indexPath.row==0)
    {
-       return 140;
+       return 160;
    }
     if (indexPath.row==1)
     {
-        return 256;
+        return 40;
     }
     if (indexPath.row==2||indexPath.row==3||indexPath.row==4)
     {
-        return 60;
+        return 80;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -226,42 +227,19 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
         {
             [cell addSubview:sv];
             [cell addSubview:page];
-            UIImageView *lineImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 135, 320, 5)];
+            UIImageView *lineImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 155, 320, 5)];
             lineImage.image=[UIImage imageNamed:@"speretorLine.png"];
             [cell addSubview:lineImage];
         }
             break;
         case 1:
         {
-            UIButton *img1=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, 146, 100)];
-            [img1 addTarget:self action:@selector(Action) forControlEvents:UIControlEventTouchUpInside];
-            [img1 setImage:[UIImage imageNamed:@"kejiBtnImage.png"] forState:UIControlStateNormal];
-            [cell addSubview:img1];
-            UIButton *img2=[[UIButton alloc]initWithFrame:CGRectMake(164, 10,146, 100)];
-            [img2 addTarget:self action:@selector(Action) forControlEvents:UIControlEventTouchUpInside];
-            [cell addSubview:img2];
-            [img2 setImage:[UIImage imageNamed:@"tmallBtnImage.png"] forState:UIControlStateNormal];
-            
-            UIButton *img3=[[UIButton alloc]initWithFrame:CGRectMake(11, 140, 64, 64)];
-            [img3 addTarget:self action:@selector(Action) forControlEvents:UIControlEventTouchUpInside];
-            [cell addSubview:img3];
-            [img3 setImage:[UIImage imageNamed:@"cart.png"] forState:UIControlStateNormal];
-            
-            UIButton *img4=[[UIButton alloc]initWithFrame:CGRectMake(89, 140, 64, 64)];
-            [img4 addTarget:self action:@selector(Action) forControlEvents:UIControlEventTouchUpInside];
-            [cell addSubview:img4];
-            [img4 setImage:[UIImage imageNamed:@"creditcard.png"] forState:UIControlStateNormal];
-            
-            UIButton *img5=[[UIButton alloc]initWithFrame:CGRectMake(167, 140, 64, 64)];
-            [img5 addTarget:self action:@selector(Action) forControlEvents:UIControlEventTouchUpInside];
-            [cell addSubview:img5];
-            [img5 setImage:[UIImage imageNamed:@"delicious.png"] forState:UIControlStateNormal];
-            
-            UIButton *img6=[[UIButton alloc]initWithFrame:CGRectMake(245, 140, 64, 64)];
-            [img6 addTarget:self action:@selector(Action) forControlEvents:UIControlEventTouchUpInside];
-            [cell addSubview:img6];
-            [img6 setImage:[UIImage imageNamed:@"notepad.png"] forState:UIControlStateNormal];
-        }
+            UIButton *qiandaoBtn=[[UIButton alloc]initWithFrame:CGRectMake(10, 8, 110, 23)];
+            [qiandaoBtn addTarget:self action:@selector(qiandaoServer:) forControlEvents:UIControlEventTouchUpInside];
+            [qiandaoBtn.titleLabel setText:@"签到"];
+            [qiandaoBtn setBackgroundImage:[UIImage imageNamed:@"qindaoBtn"] forState:UIControlStateNormal];
+            [cell addSubview:qiandaoBtn];
+                }
             break;
             
         default:
@@ -294,7 +272,13 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
             break;
     }
     return cell;
-
+}
+-(void)qiandaoServer:(id)sender
+{
+    NSLog(@"qiandao");
+    UIButton *butn=(UIButton*)sender;
+    [butn.titleLabel setText:@"签到 +1"];
+    
 }
 -(IBAction)changeViewController:(id)sender
 {
@@ -326,13 +310,16 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
             break;
     }
     [UIView animateWithDuration:0.4 animations:^(void){
-        self.tabitemBack.frame=CGRectMake([sender tag]*64, 0, 64, 44);
+        self.tabitemBack.frame=CGRectMake([sender tag]*80, 0, 80, 44);
         
     }];
 }
 -(void)closeAuthView{
     [nc dismissModalViewControllerAnimated:YES];
     nc = nil;
+}
+- (IBAction)exitKeyboard:(id)sender {
+    [sender resignFirstResponder];
 }
 - (void)viewDidUnload {
     [self setTabitemBack:nil];
