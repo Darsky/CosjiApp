@@ -7,7 +7,10 @@
 //
 
 #import "CosjiUserViewController.h"
-
+#import "TopIOSClient.h"
+#define kAppKey             @"21428060"
+#define kAppSecret          @"dda4af6d892e2024c26cd621b05dd2d0"
+#define kAppRedirectURI     @"http://cosjii.com"
 @interface CosjiUserViewController ()
 
 @end
@@ -28,7 +31,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
+-(IBAction)getShopCats:(id)sender
+{
+    TopIOSClient *client=[TopIOSClient getIOSClientByAppKey:kAppKey];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

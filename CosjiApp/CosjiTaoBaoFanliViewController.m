@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    selectSection=99;
 }
 #pragma mark -tableview datasource
 
@@ -39,9 +40,14 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    return 1;
+    if (section==selectSection) {
+        return 3;
+    }else
+    {
+        return 1;
+    }
 }
+
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -54,40 +60,113 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // static NSString *cellIdentifier = @"MyCell";
+
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     
-    // cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
     [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
-    
-    UIImageView *dotView=[[UIImageView alloc] initWithFrame:CGRectMake(10,0, 70, 70)];
-    [dotView setImage:[UIImage imageNamed:[kindsImageArray objectAtIndex:indexPath.section]]];
-    [cell addSubview:dotView];
-    UILabel *kindName=[[UILabel alloc] init];
-    kindName.frame=CGRectMake(90, 20, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
-    kindName.backgroundColor=[UIColor clearColor];
-    kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:20];
-    kindName.textColor=[UIColor blackColor];
-    [kindName setText:[kindsListArray objectAtIndex:indexPath.section]];
-    [cell addSubview:kindName];
-    UILabel *kindDesp=[[UILabel alloc] init];
-    kindDesp.frame=CGRectMake(200, 20, 100, cell.contentView.frame.size.height);
-    kindDesp.backgroundColor=[UIColor clearColor];
-    kindDesp.font=[UIFont fontWithName:@"Arial Hebrew" size:12];
-    [kindDesp setNumberOfLines:0];
-    kindDesp.textColor=[UIColor darkGrayColor];
-    [kindDesp setText:[kindsDescriptionArray objectAtIndex:indexPath.section]];
-    [cell addSubview:kindDesp];
-    return cell;
+    switch (indexPath.row) {
+        case 0:
+        {
+            UIImageView *dotView=[[UIImageView alloc] initWithFrame:CGRectMake(10,0, 70, 70)];
+            [dotView setImage:[UIImage imageNamed:[kindsImageArray objectAtIndex:indexPath.section]]];
+            [cell addSubview:dotView];
+            UILabel *kindName=[[UILabel alloc] init];
+            kindName.frame=CGRectMake(90, 20, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+            kindName.backgroundColor=[UIColor clearColor];
+            kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:20];
+            kindName.textColor=[UIColor blackColor];
+            [kindName setText:[kindsListArray objectAtIndex:indexPath.section]];
+            [cell addSubview:kindName];
+            UILabel *kindDesp=[[UILabel alloc] init];
+            kindDesp.frame=CGRectMake(200, 20, 100, cell.contentView.frame.size.height);
+            kindDesp.backgroundColor=[UIColor clearColor];
+            kindDesp.font=[UIFont fontWithName:@"Arial Hebrew" size:12];
+            [kindDesp setNumberOfLines:0];
+            kindDesp.textColor=[UIColor darkGrayColor];
+            [kindDesp setText:[kindsDescriptionArray objectAtIndex:indexPath.section]];
+            [cell addSubview:kindDesp];
+       
+
+        }
+            break;
+        case 1:
+        {
+            
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+    }
+         return cell;
 }
 #pragma mark -tableview delegate
 
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"selected");
+        if (indexPath.section!=selectSection) {
+            selectedSection=selectSection;
+            selectSection=99;
+            if (selectedSection!=99) {
+                NSLog(@"delete %d",selectedSection);
+                NSArray *path=[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:1 inSection:selectedSection],[NSIndexPath indexPathForRow:2 inSection:selectedSection],nil];
+                [self.tableView deleteRowsAtIndexPaths:path withRowAnimation:UITableViewRowAnimationAutomatic];
+                //[self performSelector:@selector(TablereloadData) withObject:self afterDelay:0.15];
+            }
+            selectSection=indexPath.section;
+            self.tableView.userInteractionEnabled=NO;
+            /*
+             [self.mainTableView beginUpdates];
+             [self.mainTableView endUpdates];*/
+            [self performSelector:@selector(setContentOff) withObject:nil afterDelay:0.2];
+            
+        }else
+        {
+            selectedSection=selectSection;
+            selectSection=99;
+            if (selectedSection!=99) {
+                NSLog(@"delete %d",selectedSection);
+                NSArray *path=[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:1 inSection:selectedSection],[NSIndexPath indexPathForRow:2 inSection:selectedSection],nil];
+                [self.tableView deleteRowsAtIndexPaths:path withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self performSelector:@selector(TablereloadData) withObject:self afterDelay:0.2];
+            }
+            
+        }
+}
+-(void)setContentOff
+{
+    NSLog(@"%d setcontent",selectSection);
+    
+    CGPoint point=CGPointMake(0,70*(selectSection));
+    /*
+     [self.mainTableView beginUpdates];
+     [self.mainTableView endUpdates];
+     */
+    [self.tableView setContentOffset:point animated:YES];
+    [self performSelector:@selector(addRows) withObject:nil afterDelay:0.3];
+}
+-(void)TablereloadData
+{
+    [self.tableView reloadData];
+}
+
+
+
+-(void)addRows
+{
+    NSLog(@"%d addRows",selectSection);
+    // [self.mainTableView reloadData];
+    NSArray *indexes=[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:1 inSection:selectSection],[NSIndexPath indexPathForRow:2 inSection:selectSection],nil];
+    [self.tableView insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
+    self.tableView.userInteractionEnabled=YES;
+    // CGPoint point=CGPointMake(0,40*(selectSection-1));
+    //  [self.mainTableView setContentOffset:point animated:NO];
+    [self performSelector:@selector(TablereloadData) withObject:self afterDelay:0.3];
+    // [self performSelector:@selector(resetTableView:) withObject:self.tableView afterDelay:0];
 }
 - (void)didReceiveMemoryWarning
 {

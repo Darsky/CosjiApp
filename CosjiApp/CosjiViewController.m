@@ -25,7 +25,7 @@
 @implementation CosjiViewController
 @synthesize userIds;
 static UINavigationController* nc;
-@synthesize tabitemBack,homeBtn,taoBaoBtn,storeBtn,activityBtn,mineBtn;
+@synthesize tabitemBack,homeBtn,taoBaoBtn,activityBtn,mineBtn;
 @synthesize customTabBar;
 @synthesize mainTableView,CustomHeadView;
 
@@ -52,7 +52,7 @@ static UINavigationController* nc;
     [NSTimer scheduledTimerWithTimeInterval:1 target: self selector: @selector(handleTimer:)  userInfo:nil  repeats: YES];
     [self AdImg:topListArray];
     [self setCurrentPage:page.currentPage];
-    
+    selectSection=99;
 
 
     
@@ -154,12 +154,12 @@ static UINavigationController* nc;
 
 }
 -(void)AdImg:(NSMutableArray*)arr{
-    [sv setContentSize:CGSizeMake(320*[arr count], 140)];
+    [sv setContentSize:CGSizeMake(320*[arr count], 160)];
     page.numberOfPages=[arr count];
     
     for ( int i=0; i<[topListArray count]; i++) {
         
-        UIButton *img=[[UIButton alloc]initWithFrame:CGRectMake(320*i, 0, 320, 140)];
+        UIButton *img=[[UIButton alloc]initWithFrame:CGRectMake(320*i, 0, 320, 160)];
         [img addTarget:self action:@selector(Action) forControlEvents:UIControlEventTouchUpInside];
         [sv addSubview:img];
         [img setImage:[UIImage imageNamed:[topListArray objectAtIndex:i]] forState:UIControlStateNormal];
@@ -190,29 +190,39 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    return 5;
+    if (section==selectSection) {
+        return 3;
+    }else
+    {
+         return 1;
+    }
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 8;
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   if(indexPath.row==0)
+   if(indexPath.section==0)
    {
        return 160;
+   }else
+   {
+       if (indexPath.section==1)
+       {
+           return 40;
+       }else
+           if (indexPath.section==selectSection) {
+               if(indexPath.row==0)
+               return 40;
+               else
+                   return 80;
+           }else
+           return 50;
+
    }
-    if (indexPath.row==1)
-    {
-        return 40;
-    }
-    if (indexPath.row==2||indexPath.row==3||indexPath.row==4)
-    {
-        return 80;
-    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -221,10 +231,11 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
     
     // cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    switch (indexPath.row) {
+    
+    switch (indexPath.section) {
         case 0:
         {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             [cell addSubview:sv];
             [cell addSubview:page];
             UIImageView *lineImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 155, 320, 5)];
@@ -234,17 +245,379 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
             break;
         case 1:
         {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             UIButton *qiandaoBtn=[[UIButton alloc]initWithFrame:CGRectMake(10, 8, 110, 23)];
             [qiandaoBtn addTarget:self action:@selector(qiandaoServer:) forControlEvents:UIControlEventTouchUpInside];
-            [qiandaoBtn.titleLabel setText:@"签到"];
-            [qiandaoBtn setBackgroundImage:[UIImage imageNamed:@"qindaoBtn"] forState:UIControlStateNormal];
+            [qiandaoBtn setTitle:@"签到" forState:UIControlStateNormal];
+            [qiandaoBtn setImage:[UIImage imageNamed:@"qindaoBtn"] forState:UIControlStateNormal];
             [cell addSubview:qiandaoBtn];
-                }
+            UIButton *helperBtn=[[UIButton alloc]initWithFrame:CGRectMake(200, 8, 110, 23)];
+            [helperBtn addTarget:self action:@selector(qiandaoServer:) forControlEvents:UIControlEventTouchUpInside];
+            [helperBtn setTitle:@"返利助手" forState:UIControlStateNormal];
+            [helperBtn setImage:[UIImage imageNamed:@"helperBtn"] forState:UIControlStateNormal];
+            [cell addSubview:helperBtn];
+
+        }
             break;
-            
+        case 2:
+        {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            UIButton *taobaoStoreBtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [taobaoStoreBtn addTarget:self action:@selector(presentStoreBrowseViewController:) forControlEvents:UIControlEventTouchUpInside];
+            [taobaoStoreBtn setBackgroundImage:[UIImage imageNamed:@"taobaoStore"] forState:UIControlStateNormal];
+            [taobaoStoreBtn setTag:0];
+            taobaoStoreBtn.frame=CGRectMake(10, 5, 90, 40);
+            UIButton *tmallStoreBtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [tmallStoreBtn addTarget:self action:@selector(presentStoreBrowseViewController:) forControlEvents:UIControlEventTouchUpInside];
+            [tmallStoreBtn setBackgroundImage:[UIImage imageNamed:@"tmailStore"] forState:UIControlStateNormal];
+            [tmallStoreBtn setTag:1];
+            tmallStoreBtn.frame=CGRectMake(115, 5, 90, 40);
+            UIButton *juhuasuanStoreBtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [juhuasuanStoreBtn addTarget:self action:@selector(presentStoreBrowseViewController:) forControlEvents:UIControlEventTouchUpInside];
+            [juhuasuanStoreBtn setBackgroundImage:[UIImage imageNamed:@"juhuasuanStore"] forState:UIControlStateNormal];
+            [juhuasuanStoreBtn setTag:2];
+            juhuasuanStoreBtn.frame=CGRectMake(220, 5, 90, 40);
+            [cell addSubview:taobaoStoreBtn];
+            [cell addSubview:tmallStoreBtn];
+            [cell addSubview:juhuasuanStoreBtn];
+        }
+            break;
+        case 3:
+        {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+            if (selectSection==indexPath.section) {
+                switch (indexPath.row) {
+                    case 0:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 35)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened"];
+                        [cell addSubview:cellBG];
+                        UILabel *kindName=[[UILabel alloc] init];
+                        kindName.frame=CGRectMake(15, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                        kindName.backgroundColor=[UIColor clearColor];
+                        kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                        kindName.textColor=[UIColor grayColor];
+                        [kindName setText:@"团购返利"];
+                        [cell addSubview:kindName];
+
+                    }
+                        break;
+                    case 1:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 80)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened1"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                    case 2:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 70)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened2"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                }
+            }else
+            {
+                UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 40)];
+                cellBG.image=[UIImage imageNamed:@"cellBGclosed"];
+                [cell addSubview:cellBG];
+                UILabel *kindName=[[UILabel alloc] init];
+                kindName.frame=CGRectMake(15, 5, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                kindName.backgroundColor=[UIColor clearColor];
+                kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                kindName.textColor=[UIColor grayColor];
+                [kindName setText:@"团购返利"];
+                [cell addSubview:kindName];
+
+            }
+        }
+            break;
+        case 4:
+        {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+
+            if (selectSection==indexPath.section) {
+                switch (indexPath.row) {
+                    case 0:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 35)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened"];
+                        [cell addSubview:cellBG];
+                        UILabel *kindName=[[UILabel alloc] init];
+                        kindName.frame=CGRectMake(15, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                        kindName.backgroundColor=[UIColor clearColor];
+                        kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                        kindName.textColor=[UIColor grayColor];
+                        [kindName setText:@"母婴教育"];
+                        [cell addSubview:kindName];
+                        
+                    }
+                        break;
+                    case 1:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 80)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened1"];
+                        [cell addSubview:cellBG];
+
+                    }
+                        break;
+                    case 2:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 70)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened2"];
+                        [cell addSubview:cellBG];
+
+                    }
+                        break;
+                }
+
+                
+            }else
+            {
+                UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 40)];
+                cellBG.image=[UIImage imageNamed:@"cellBGclosed"];
+                [cell addSubview:cellBG];
+                UILabel *kindName=[[UILabel alloc] init];
+                kindName.frame=CGRectMake(15, 5, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                kindName.backgroundColor=[UIColor clearColor];
+                kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                kindName.textColor=[UIColor grayColor];
+                [kindName setText:@"母婴教育"];
+                [cell addSubview:kindName];
+
+            }
+        }
+            break;
+        case 5:
+        {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+
+            if (selectSection==indexPath.section) {
+                switch (indexPath.row) {
+                    case 0:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 35)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened"];
+                        [cell addSubview:cellBG];
+                        UILabel *kindName=[[UILabel alloc] init];
+                        kindName.frame=CGRectMake(15, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                        kindName.backgroundColor=[UIColor clearColor];
+                        kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                        kindName.textColor=[UIColor grayColor];
+                        [kindName setText:@"家庭生活"];
+                        [cell addSubview:kindName];
+                        
+                    }
+                        break;
+                    case 1:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 80)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened1"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                    case 2:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 70)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened2"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                }
+
+                
+            }else
+            {
+                UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 40)];
+                cellBG.image=[UIImage imageNamed:@"cellBGclosed"];
+                [cell addSubview:cellBG];
+                UILabel *kindName=[[UILabel alloc] init];
+                kindName.frame=CGRectMake(15, 5, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                kindName.backgroundColor=[UIColor clearColor];
+                kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                kindName.textColor=[UIColor grayColor];
+                [kindName setText:@"家庭生活"];
+                [cell addSubview:kindName];
+
+            }
+        }
+            break;
+        case 6:
+        {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+
+            if (selectSection==indexPath.section) {
+                
+                switch (indexPath.row) {
+                    case 0:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 35)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened"];
+                        [cell addSubview:cellBG];
+                        UILabel *kindName=[[UILabel alloc] init];
+                        kindName.frame=CGRectMake(15, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                        kindName.backgroundColor=[UIColor clearColor];
+                        kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                        kindName.textColor=[UIColor grayColor];
+                        [kindName setText:@"美容化妆"];
+                        [cell addSubview:kindName];
+                        
+                    }
+                        break;
+                    case 1:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 80)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened1"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                    case 2:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 70)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened2"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                }
+
+            }else
+            {
+                UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 40)];
+                cellBG.image=[UIImage imageNamed:@"cellBGclosed"];
+                [cell addSubview:cellBG];
+                UILabel *kindName=[[UILabel alloc] init];
+                kindName.frame=CGRectMake(15, 5, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                kindName.backgroundColor=[UIColor clearColor];
+                kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                kindName.textColor=[UIColor grayColor];
+                [kindName setText:@"美容化妆"];
+                [cell addSubview:kindName];
+
+            }
+        }
+            break;
+        case 7:
+        {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+
+            if (selectSection==indexPath.section) {
+                switch (indexPath.row) {
+                    case 0:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 35)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened"];
+                        [cell addSubview:cellBG];
+                        UILabel *kindName=[[UILabel alloc] init];
+                        kindName.frame=CGRectMake(15, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                        kindName.backgroundColor=[UIColor clearColor];
+                        kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                        kindName.textColor=[UIColor grayColor];
+                        [kindName setText:@"数码家电"];
+                        [cell addSubview:kindName];
+                        
+                    }
+                        break;
+                    case 1:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 80)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened1"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                    case 2:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 70)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened2"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                }
+
+                
+            }else
+            {
+                UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 40)];
+                cellBG.image=[UIImage imageNamed:@"cellBGclosed"];
+                [cell addSubview:cellBG];
+                UILabel *kindName=[[UILabel alloc] init];
+                kindName.frame=CGRectMake(15, 5, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                kindName.backgroundColor=[UIColor clearColor];
+                kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                kindName.textColor=[UIColor grayColor];
+                [kindName setText:@"数码家电"];
+                [cell addSubview:kindName];
+
+            }
+        }
+            break;
+        case 8:
+        {
+            [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+
+            if (selectSection==indexPath.section) {
+                switch (indexPath.row) {
+                    case 0:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 35)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened"];
+                        [cell addSubview:cellBG];
+                        UILabel *kindName=[[UILabel alloc] init];
+                        kindName.frame=CGRectMake(15, 0, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                        kindName.backgroundColor=[UIColor clearColor];
+                        kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                        kindName.textColor=[UIColor grayColor];
+                        [kindName setText:@"服饰鞋包"];
+                        [cell addSubview:kindName];
+                        
+                    }
+                        break;
+                    case 1:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 80)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened1"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                    case 2:
+                    {
+                        UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 300, 70)];
+                        cellBG.image=[UIImage imageNamed:@"cellBGopened2"];
+                        [cell addSubview:cellBG];
+                        
+                    }
+                        break;
+                }
+
+            }else
+            {
+                UIImageView *cellBG=[[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 300, 40)];
+                cellBG.image=[UIImage imageNamed:@"cellBGclosed"];
+                [cell addSubview:cellBG];
+                UILabel *kindName=[[UILabel alloc] init];
+                kindName.frame=CGRectMake(15, 5, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+                kindName.backgroundColor=[UIColor clearColor];
+                kindName.font=[UIFont fontWithName:@"Arial Hebrew" size:18];
+                kindName.textColor=[UIColor grayColor];
+                [kindName setText:@"服饰鞋包"];
+                [cell addSubview:kindName];
+
+            }
+        }
+            break;
+            /*
         default:
         {
-            int rowNumber=(indexPath.row-2)*3;
+            int rowNumber=(indexPath.section-2)*3;
             if (rowNumber<[storeListArray count]-1) {
                 NSLog(@"cellSet");
                 UIButton *img1=[[UIButton alloc]initWithFrame:CGRectMake(10, 15, 87, 30)];
@@ -270,6 +643,7 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
             }
         }
             break;
+             */
     }
     return cell;
 }
@@ -314,6 +688,74 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
         
     }];
 }
+-(void)presentStoreBrowseViewController:(id)sender
+{
+    NSLog(@"%d",[sender tag]);
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section>2) {
+    if (indexPath.section!=selectSection) {
+        selectedSection=selectSection;
+        selectSection=99;
+        if (selectedSection!=99) {
+            NSLog(@"delete %d",selectedSection);
+            NSArray *path=[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:1 inSection:selectedSection],[NSIndexPath indexPathForRow:2 inSection:selectedSection],nil];
+            [self.mainTableView deleteRowsAtIndexPaths:path withRowAnimation:UITableViewRowAnimationAutomatic];
+            //[self performSelector:@selector(TablereloadData) withObject:self afterDelay:0.15];
+        }
+        selectSection=indexPath.section;
+        self.mainTableView.userInteractionEnabled=NO;
+        /*
+         [self.mainTableView beginUpdates];
+         [self.mainTableView endUpdates];*/
+        [self performSelector:@selector(setContentOff) withObject:nil afterDelay:0.2];
+
+    }else
+    {
+        selectedSection=selectSection;
+        selectSection=99;
+        if (selectedSection!=99) {
+            NSLog(@"delete %d",selectedSection);
+            NSArray *path=[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:1 inSection:selectedSection],[NSIndexPath indexPathForRow:2 inSection:selectedSection],nil];
+            [self.mainTableView deleteRowsAtIndexPaths:path withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self performSelector:@selector(TablereloadData) withObject:self afterDelay:0.2];
+        }
+
+    }
+    }
+}
+-(void)setContentOff
+{
+    NSLog(@"%d setcontent",selectSection);
+    
+    CGPoint point=CGPointMake(0,40*(selectSection-1));
+    /*
+    [self.mainTableView beginUpdates];
+    [self.mainTableView endUpdates];
+    */
+    [self.mainTableView setContentOffset:point animated:YES];
+    [self performSelector:@selector(addRows) withObject:nil afterDelay:0.3];
+}
+-(void)TablereloadData
+{
+    [self.mainTableView reloadData];
+}
+
+
+
+-(void)addRows
+{
+    NSLog(@"%d addRows",selectSection);
+   // [self.mainTableView reloadData];
+    NSArray *indexes=[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:1 inSection:selectSection],[NSIndexPath indexPathForRow:2 inSection:selectSection],nil];
+    [self.mainTableView insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationAutomatic];
+    self.mainTableView.userInteractionEnabled=YES;
+   // CGPoint point=CGPointMake(0,40*(selectSection-1));
+  //  [self.mainTableView setContentOffset:point animated:NO];
+    [self performSelector:@selector(TablereloadData) withObject:self afterDelay:0.3];
+    // [self performSelector:@selector(resetTableView:) withObject:self.tableView afterDelay:0];
+}
 -(void)closeAuthView{
     [nc dismissModalViewControllerAnimated:YES];
     nc = nil;
@@ -325,7 +767,6 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
     [self setTabitemBack:nil];
     [self setHomeBtn:nil];
     [self setTaoBaoBtn:nil];
-    [self setStoreBtn:nil];
     [self setActivityBtn:nil];
     [self setMineBtn:nil];
     [self setCustomTabBar:nil];

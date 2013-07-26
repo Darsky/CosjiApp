@@ -14,6 +14,8 @@
     NSMutableArray *kindsImageArray;
     NSMutableArray *kindsDescriptionArray;
     NSMutableArray *ObjectsArray;
+    int selectedSection;
+    int selectSection;
 }
 
 @property (nonatomic,strong)IBOutlet UITableView *tableView;

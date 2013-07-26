@@ -17,6 +17,8 @@
     NSMutableArray *topListArray;
     NSMutableArray *storeListArray;
     NSMutableArray *brandListArray;
+    int selectedSection;
+    int selectSection;
     int TimeNum;
     BOOL Tend;
 }
@@ -25,10 +27,9 @@
 @property (copy,nonatomic) NSMutableArray * userIds;
 @property (weak, nonatomic) IBOutlet UIButton *homeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *taoBaoBtn;
-@property (weak, nonatomic) IBOutlet UIButton *storeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *activityBtn;
 @property (weak, nonatomic) IBOutlet UIButton *mineBtn;
-@property (weak, nonatomic) IBOutlet UIView *customTabBar;
+@property (strong, nonatomic) IBOutlet UIView *customTabBar;
 @property (weak, nonatomic) IBOutlet UIView *CustomHeadView;
 - (IBAction)exitKeyboard:(id)sender;
 
