@@ -28,6 +28,7 @@ static UINavigationController* nc;
 @synthesize tabitemBack,homeBtn,taoBaoBtn,activityBtn,mineBtn;
 @synthesize customTabBar;
 @synthesize mainTableView,CustomHeadView;
+@synthesize storeBrowseViewController;
 
 - (void)viewDidLoad
 {
@@ -52,6 +53,8 @@ static UINavigationController* nc;
     [NSTimer scheduledTimerWithTimeInterval:1 target: self selector: @selector(handleTimer:)  userInfo:nil  repeats: YES];
     [self AdImg:topListArray];
     [self setCurrentPage:page.currentPage];
+    self.storeBrowseViewController=[[CosjiWebViewController alloc] initWithNibName:@"CosjiWebViewController" bundle:nil];
+      self.navigationController.navigationBarHidden=YES;
     selectSection=99;
 
 
@@ -180,7 +183,7 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
                        dispatch_async( dispatch_get_main_queue(), ^(void){
                            if( image != nil )
                            {
-                               imageBlock( image );
+                               imageBlock(image);
                            } else {
                                errorBlock();
                            }
@@ -691,6 +694,35 @@ void TopImageFromURL( NSURL * URL, void (^imageBlock)(UIImage * image), void (^e
 -(void)presentStoreBrowseViewController:(id)sender
 {
     NSLog(@"%d",[sender tag]);
+    switch ([sender tag]) {
+        case 0:
+        {
+            NSURL *url =[NSURL URLWithString:@"http://m.taobao.com"];
+            NSURLRequest *request =[NSURLRequest requestWithURL:url];
+            [self.navigationController pushViewController:storeBrowseViewController animated:YES];
+            [storeBrowseViewController.webView loadRequest:request];
+            [storeBrowseViewController.storeName setText:@"淘宝网"];
+        }
+            break;
+        case 1:
+        {
+            NSURL *url =[NSURL URLWithString:@"http://m.tmall.com"];
+            NSURLRequest *request =[NSURLRequest requestWithURL:url];
+            [self.navigationController pushViewController:storeBrowseViewController animated:YES];
+            [storeBrowseViewController.webView loadRequest:request];
+            [storeBrowseViewController.storeName setText:@"天猫"];
+        }
+            break;
+        case 2:
+        {
+            NSURL *url =[NSURL URLWithString:@"http://ju.m.taobao.com"];
+            NSURLRequest *request =[NSURLRequest requestWithURL:url];
+            [self.navigationController pushViewController:storeBrowseViewController animated:YES];
+            [storeBrowseViewController.webView loadRequest:request];
+            [storeBrowseViewController.storeName setText:@"聚划算"];
+        }
+            break;
+    }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

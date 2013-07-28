@@ -38,6 +38,10 @@
 		1814F7021799191000CC2ECD /* kejiBtnImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1814F7001799191000CC2ECD /* kejiBtnImage.png */; };
 		1814F7031799191000CC2ECD /* tmallBtnImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1814F7011799191000CC2ECD /* tmallBtnImage.png */; };
 		1814F70517991EB900CC2ECD /* speretorLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 1814F70417991EB900CC2ECD /* speretorLine.png */; };
+		182A81B317A39D91003BEBFA /* CosjiWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182A81B117A39D91003BEBFA /* CosjiWebViewController.m */; };
+		182A81B417A39D91003BEBFA /* CosjiWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182A81B217A39D91003BEBFA /* CosjiWebViewController.xib */; };
+		182A81B617A39E70003BEBFA /* userImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 182A81B517A39E70003BEBFA /* userImage.jpg */; };
+		182A81B817A3A685003BEBFA /* backBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 182A81B717A3A685003BEBFA /* backBtn.png */; };
 		18753A8317A1186900B68032 /* juhuasuanStore.png in Resources */ = {isa = PBXBuildFile; fileRef = 18753A8017A1186600B68032 /* juhuasuanStore.png */; };
 		18753A8417A1186900B68032 /* taobaoStore.png in Resources */ = {isa = PBXBuildFile; fileRef = 18753A8117A1186700B68032 /* taobaoStore.png */; };
 		18753A8517A1186900B68032 /* tmailStore.png in Resources */ = {isa = PBXBuildFile; fileRef = 18753A8217A1186800B68032 /* tmailStore.png */; };
@@ -128,6 +132,11 @@
 		1814F7001799191000CC2ECD /* kejiBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kejiBtnImage.png; sourceTree = "<group>"; };
 		1814F7011799191000CC2ECD /* tmallBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tmallBtnImage.png; sourceTree = "<group>"; };
 		1814F70417991EB900CC2ECD /* speretorLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speretorLine.png; sourceTree = "<group>"; };
+		182A81B017A39D91003BEBFA /* CosjiWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CosjiWebViewController.h; sourceTree = "<group>"; };
+		182A81B117A39D91003BEBFA /* CosjiWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CosjiWebViewController.m; sourceTree = "<group>"; };
+		182A81B217A39D91003BEBFA /* CosjiWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CosjiWebViewController.xib; sourceTree = "<group>"; };
+		182A81B517A39E70003BEBFA /* userImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userImage.jpg; sourceTree = "<group>"; };
+		182A81B717A3A685003BEBFA /* backBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backBtn.png; sourceTree = "<group>"; };
 		18753A8017A1186600B68032 /* juhuasuanStore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juhuasuanStore.png; sourceTree = "<group>"; };
 		18753A8117A1186700B68032 /* taobaoStore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taobaoStore.png; sourceTree = "<group>"; };
 		18753A8217A1186800B68032 /* tmailStore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tmailStore.png; sourceTree = "<group>"; };
@@ -258,6 +267,7 @@
 		1814F6BF1798FA5500CC2ECD /* mainViewImages */ = {
 			isa = PBXGroup;
 			children = (
+				182A81B717A3A685003BEBFA /* backBtn.png */,
 				18E4D66317A1979A0080C26B /* cellBGopened.png */,
 				18E4D65F17A196850080C26B /* cellBGopened1.png */,
 				18E4D66017A196850080C26B /* cellBGopened2.png */,
@@ -400,6 +410,7 @@
 		60934203178E1EB600761FB6 /* CosjiApp */ = {
 			isa = PBXGroup;
 			children = (
+				182A81B517A39E70003BEBFA /* userImage.jpg */,
 				1814F6BF1798FA5500CC2ECD /* mainViewImages */,
 				18F0CD28179269C10031995E /* UserView */,
 				18F0CD22179268C20031995E /* SpecialActivity */,
@@ -411,6 +422,9 @@
 				60934215178E1EB600761FB6 /* CosjiViewController.h */,
 				60934216178E1EB600761FB6 /* CosjiViewController.m */,
 				60934218178E1EB600761FB6 /* CosjiViewController.xib */,
+				182A81B017A39D91003BEBFA /* CosjiWebViewController.h */,
+				182A81B117A39D91003BEBFA /* CosjiWebViewController.m */,
+				182A81B217A39D91003BEBFA /* CosjiWebViewController.xib */,
 				60934204178E1EB600761FB6 /* Supporting Files */,
 			);
 			path = CosjiApp;
@@ -621,6 +635,9 @@
 				18E4D66117A196850080C26B /* cellBGopened1.png in Resources */,
 				18E4D66217A196850080C26B /* cellBGopened2.png in Resources */,
 				18E4D66417A1979A0080C26B /* cellBGopened.png in Resources */,
+				182A81B417A39D91003BEBFA /* CosjiWebViewController.xib in Resources */,
+				182A81B617A39E70003BEBFA /* userImage.jpg in Resources */,
+				182A81B817A3A685003BEBFA /* backBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +658,7 @@
 				18F0CD20179256350031995E /* CosjiViewStoreFanliController.m in Sources */,
 				18F0CD26179268E40031995E /* CosjiSpecialActivityViewController.m in Sources */,
 				18F0CD2C179269DA0031995E /* CosjiUserViewController.m in Sources */,
+				182A81B317A39D91003BEBFA /* CosjiWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
