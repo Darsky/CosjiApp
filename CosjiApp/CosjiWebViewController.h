@@ -12,6 +12,7 @@
 {
     
 }
++(CosjiWebViewController*)shareCosjiWebViewController;
 @property (weak, nonatomic) IBOutlet UIView *customNavBar;
 @property (weak, nonatomic) IBOutlet UILabel *storeName;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;

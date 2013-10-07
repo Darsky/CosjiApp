@@ -7,12 +7,13 @@
 //
 
 #import "CosjiAppDelegate.h"
+#import "MobileProbe.h"
 #import "TopAppConnector.h"
 #import "SKTransactionObserver.h"
 #import "TopAppService.h"
 #import "CosjiViewController.h"
 #import "CosjiSpecialActivityViewController.h"
-#import "CosjiTaoBaoFanliViewController.h"
+#import "CosjiTBViewController.h"
 #import "CosjiUserViewController.h";
 #import "CosjiViewStoreFanliController.h"
 #define kAppKey             @"21428060"
@@ -28,27 +29,28 @@
     // Override point for customization after application launch.
     UITabBarController *rootTabBarController=[[UITabBarController alloc] init];
     CosjiSpecialActivityViewController *specialActivityViewController=[[CosjiSpecialActivityViewController alloc] initWithNibName:@"CosjiSpecialActivityViewController" bundle:nil];
-    CosjiTaoBaoFanliViewController *taoBaoFanliViewController=[[CosjiTaoBaoFanliViewController alloc] initWithNibName:@"CosjiTaoBaoFanliViewController" bundle:nil];
+    CosjiTBViewController *taoBaoFanliViewController=[[CosjiTBViewController alloc] initWithNibName:@"CosjiTBViewController" bundle:nil];
     CosjiUserViewController *userViewController=[[CosjiUserViewController alloc] initWithNibName:@"CosjiUserViewController" bundle:nil];    
     self.viewController=[[CosjiViewController alloc] initWithNibName:@"CosjiViewController" bundle:nil];
     UINavigationController *mainNavCon=[[UINavigationController alloc] initWithRootViewController:self.viewController];
-    rootTabBarController.viewControllers=[NSArray arrayWithObjects:mainNavCon,taoBaoFanliViewController,specialActivityViewController,userViewController, nil];
-    //[rootTabBarController.tabBar setHidden:YES];
-    UIView *contentView;
-    if ( [[rootTabBarController.view.subviews objectAtIndex:0] isKindOfClass:[UITabBar class]] )
-        contentView = [rootTabBarController.view.subviews objectAtIndex:1];
-    else
-        contentView = [rootTabBarController.view.subviews objectAtIndex:0];
-    contentView.frame = CGRectMake(contentView.bounds.origin.x,  contentView.bounds.origin.y,  contentView.bounds.size.width, contentView.bounds.size.height + rootTabBarController.tabBar.frame.size.height);
-    rootTabBarController.tabBar.hidden = YES;
-
-    self.window.rootViewController = rootTabBarController;
-    [self.window makeKeyAndVisible];
+    mainNavCon.navigationBarHidden=YES;
+    UINavigationController *tbFanliNavCon=[[UINavigationController alloc] initWithRootViewController:taoBaoFanliViewController];
+    tbFanliNavCon.navigationBarHidden=YES;
+    rootTabBarController.viewControllers=[NSArray arrayWithObjects:mainNavCon,tbFanliNavCon,specialActivityViewController,userViewController, nil];
+    //设置tab bar item 图标的
+    [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"logined"];
+    [mainNavCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"首页-动态"] withFinishedUnselectedImage:[UIImage imageNamed:@"首页-默认"] ];
+    [mainNavCon.tabBarItem setTitle:@"首页"];
+    [tbFanliNavCon.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"淘宝-动态"]  withFinishedUnselectedImage:[UIImage imageNamed:@"淘宝-默认"]];
+    [tbFanliNavCon.tabBarItem setTitle:@"淘宝返利"];
+    [specialActivityViewController.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"九元购-动态"] withFinishedUnselectedImage:[UIImage imageNamed:@"九元购-默认"]];
+    [specialActivityViewController.tabBarItem setTitle:@"独享九元包邮"];
+    [userViewController.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"我的可及-动态"] withFinishedUnselectedImage:[UIImage imageNamed:@"我的可及-默认"]];
+    [userViewController.tabBarItem setTitle:@"我的可及"];
+    [rootTabBarController.tabBar setBackgroundImage:[UIImage imageNamed:@"导航条"]];
     [TopIOSClient registerIOSClient:kAppKey appSecret:kAppSecret callbackUrl:kAppRedirectURI needAutoRefreshToken:TRUE];
-
-    
     [TopAppService registerAppService:kAppKey appConnector:[TopAppConnector getAppConnectorbyAppKey:kAppKey]];
-    
+    [MobileProbe initWithAppKey:@"cnzz.i_fmgf4sxqars5re7in5qrcg63" channel:@"iOSChannel"];
     //add transaction observer
     SKTransactionObserver * skObserver = [[SKTransactionObserver alloc]init];
     [[SKPaymentQueue defaultQueue] addTransactionObserver:skObserver];
@@ -60,7 +62,9 @@
         [appservice sso:nil forceRefresh:TRUE eventCallback:nil];
     });
     
-
+    
+    self.window.rootViewController = rootTabBarController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

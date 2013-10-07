@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CosjiSpecialActivityViewController : UIViewController
+@interface CosjiSpecialActivityViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    NSMutableArray *itemsArray;
+
+}
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *CustomNav;
 
 @end

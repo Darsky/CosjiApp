@@ -11,7 +11,7 @@
 #import "StoreKit/SKProductsRequest.h"
 #import "CosjiWebViewController.h"
 
-@interface CosjiViewController : UIViewController<SKProductsRequestDelegate,UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface CosjiViewController : UIViewController<SKProductsRequestDelegate,UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,UIActionSheetDelegate>
 {
     UIScrollView *sv;
     UIPageControl *page;
@@ -21,16 +21,12 @@
     int selectedSection;
     int selectSection;
     int TimeNum;
+    int selectedIndex;
     BOOL Tend;
 }
+
 @property (strong,nonatomic) IBOutlet UITableView *mainTableView;
-@property (weak, nonatomic) IBOutlet UIView *tabitemBack;
 @property (copy,nonatomic) NSMutableArray * userIds;
-@property (weak, nonatomic) IBOutlet UIButton *homeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *taoBaoBtn;
-@property (weak, nonatomic) IBOutlet UIButton *activityBtn;
-@property (weak, nonatomic) IBOutlet UIButton *mineBtn;
-@property (strong, nonatomic) IBOutlet UIView *customTabBar;
 @property (weak, nonatomic) IBOutlet UIView *CustomHeadView;
 @property (strong,nonatomic) CosjiWebViewController *storeBrowseViewController;
 - (IBAction)exitKeyboard:(id)sender;

@@ -15,7 +15,15 @@
 
 @implementation CosjiWebViewController
 @synthesize customNavBar,storeName,userImage,userSetBtn,webView;
-
+static CosjiWebViewController *shareCosjiWebViewController = nil;
++(CosjiWebViewController*)shareCosjiWebViewController
+{
+    
+    if (shareCosjiWebViewController == nil) {
+        shareCosjiWebViewController = [[super allocWithZone:NULL] init];
+    }
+    return shareCosjiWebViewController;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,6 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBarHidden=YES;
+    self.customNavBar.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"工具栏背景"]];
     [self.customNavBar layer].shadowPath =[UIBezierPath bezierPathWithRect:customNavBar.bounds].CGPath;
     self.customNavBar.layer.shadowColor=[[UIColor blackColor] CGColor];
     self.customNavBar.layer.shadowOffset=CGSizeMake(0,0);
@@ -37,10 +46,19 @@
     self.customNavBar.layer.shadowOpacity=1.0;
 
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden=YES;
+    self.tabBarController.tabBar.hidden=YES;
+}
+-(void)setTabBarHidden:(BOOL)is
+{
+}
 
 - (IBAction)back:(id)sender
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+  //  [self.navigationController popToRootViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
